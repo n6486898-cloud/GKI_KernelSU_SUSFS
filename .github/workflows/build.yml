@@ -495,7 +495,7 @@ jobs:
         run: |
           cd "$CONFIG"
           #Add Wild to Kernel Version
-          sed -i '$s|echo "\$res"|echo "\$res-Wild"|' ./common/scripts/setlocalversion
+          sed -i '$s|echo "\$res"|echo "\$res"|' ./common/scripts/setlocalversion
           #Set Kernel Timestamp
           perl -pi -e 's{UTS_VERSION="\$\(echo \$UTS_VERSION \$CONFIG_FLAGS \$TIMESTAMP \| cut -b -\$UTS_LEN\)"}{UTS_VERSION="#1 SMP PREEMPT \$(date -u +%a\ %b\ %d\ %H:%M:%S\ UTC\ %Y)"}' ./common/scripts/mkcompile_h
           if [ -f "build/build.sh" ]; then
